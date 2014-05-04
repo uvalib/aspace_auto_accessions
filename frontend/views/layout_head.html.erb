@@ -1,3 +1,12 @@
-<% if controller.controller_name == 'accessions' && controller.action_name == 'new' %>
+<% if controller.controller_name == 'accessions' && ['edit', 'new'].include?(controller.action_name) %>
   <%= javascript_include_tag "#{@base_url}/assets/yale_accession_identifiers.js" %>
+  <%= stylesheet_link_tag "#{@base_url}/assets/yale_accessions.css" %>
 <% end %>
+
+<% if controller.controller_name == 'yale_accessions' %>
+	<%= javascript_include_tag "#{@base_url}/assets/tagmanager/tagmanager.js" %>
+	<%= javascript_include_tag "#{@base_url}/assets/department_list.js" %>
+	<%= stylesheet_link_tag "#{@base_url}/assets/tagmanager/tagmanager.css" %>
+<% end %>
+
+<%= javascript_include_tag "#{@base_url}/assets/repository_menu.js" %>
