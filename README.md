@@ -11,7 +11,7 @@ Unzip the release and move it to:
 
     /path/to/archivesspace/plugins
 
-Enable the plugin by editing the file in `common/config/config.rb`:
+Enable the plugin by editing the file in `config/config.rb`:
 
     AppConfig[:plugins] = ['some_plugin', 'yale_accessions']
 
