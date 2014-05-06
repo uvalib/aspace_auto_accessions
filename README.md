@@ -11,15 +11,22 @@ Unzip the release and move it to:
 
     /path/to/archivesspace/plugins
 
+Unzip it:
+
+    $ cd /path/to/archivesspace/plugins
+    $ unzip yale_accessions.zip -d yale_accessions
+
 Enable the plugin by editing the file in `config/config.rb`:
 
     AppConfig[:plugins] = ['some_plugin', 'yale_accessions']
+
+(Make sure you uncomment this line (i.e., remove the leading '#' if present))
 
 See also:
 
   https://github.com/archivesspace/archivesspace/blob/master/plugins/README.md
 
-You will neeed to shutdown archivesspace and migrate the database:
+You will need to shutdown archivesspace and migrate the database:
 
      $ cd /path/to/archivesspace
      $ scripts/setup-database.sh
