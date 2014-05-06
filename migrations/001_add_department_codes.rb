@@ -1,3 +1,4 @@
+require_relative 'utils'
 
 Sequel.migration do
 
@@ -23,7 +24,7 @@ Sequel.migration do
 
       values = {
         :repo_id => id,
-        :codes => JSON([]),
+        :codes => blobify(self, JSON([])),
       }
 
       [:create_time, :system_mtime, :user_mtime].each do |time|
