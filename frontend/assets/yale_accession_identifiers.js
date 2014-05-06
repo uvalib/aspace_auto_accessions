@@ -25,7 +25,6 @@ $(function () {
       type: "GET",
       success: function(department_list) {
         var codes = department_list.codes;
-
         var current_code = $('#accession_id_1_').val();
 
         // Deprecated department codes
@@ -51,6 +50,8 @@ $(function () {
           $('#accession_id_1_').replaceWith(html);
         } else if (codes.length == 1) {
           $('#accession_id_1_').val(codes[0]);
+        } else {
+          $('#accession_id_1_').attr('disabled', 'disabled');
         }
         
       },

@@ -1,4 +1,4 @@
-<% if controller.controller_name == 'accessions' && ['edit', 'new'].include?(controller.action_name) %>
+<% if controller.controller_name == 'accessions' && ['edit', 'new', 'create'].include?(controller.action_name) %>
   <%= javascript_include_tag "#{@base_url}/assets/yale_accession_identifiers.js" %>
   <%= stylesheet_link_tag "#{@base_url}/assets/yale_accessions.css" %>
 <% end %>
