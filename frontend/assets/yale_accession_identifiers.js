@@ -9,7 +9,7 @@ $(function () {
   var init = function () {
     $ids.removeClass('required');
     $id_0.attr('readonly', 'readonly');
-    $id_2.attr('disabled', 'disabled');
+    $id_2.attr('readonly', 'readonly');
 
     if (! $id_2.val().length) {
       $id_2.val('XXXX');
