@@ -1,8 +1,10 @@
+require 'date'
+
 module YaleAccessionIdGenerator
 
   @id_0_generator = lambda {|json|
     date = Date.parse(json['accession_date'])
-    "#{date.month > 5 ? date.year : date.year - 1}"
+    "#{date.month > 6 ? date.year + 1 : date.year}"
   }
 
 

@@ -9,7 +9,7 @@ $(function () {
   var init = function () {
     $ids.removeClass('required');
     $id_0.attr('readonly', 'readonly');
-    $id_2.attr('disabled', 'disabled');
+    $id_2.attr('readonly', 'readonly');
 
     if (! $id_2.val().length) {
       $id_2.val('XXXX');
@@ -34,7 +34,7 @@ $(function () {
         }
 
         if (codes.length > 1) {
-          var html = "<select id=\"accession_id_1_\" name=\"accession[id_1]\"";
+          var html = "<select id=\"accession_id_1_\" name=\"accession[id_1]\">";
           $.each(codes, function(i, code) {
             if (code == current_code) {
               html += "<option value=\"" + code + "\" selected=\"selected\">" + code + "</option>";
@@ -62,7 +62,7 @@ $(function () {
   var update_fiscal_year = function (date_string) {
     var date = new Date(date_string);
     var month = date.getMonth();
-    var year = (month > 5 && date.getFullYear()) || (date.getFullYear() - 1);
+    var year = (month > 6 && date.getFullYear() + 1) || (date.getFullYear());
 
     $id_0.val(year);
   }
