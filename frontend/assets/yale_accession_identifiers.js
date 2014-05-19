@@ -62,7 +62,7 @@ $(function () {
   var update_fiscal_year = function (date_string) {
     var date = new Date(date_string);
     var month = date.getMonth();
-    var year = (month > 5 && date.getFullYear()) || (date.getFullYear() - 1);
+    var year = (month > 6 && date.getFullYear() + 1) || (date.getFullYear());
 
     $id_0.val(year);
   }
