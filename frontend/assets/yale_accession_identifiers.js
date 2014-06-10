@@ -60,11 +60,12 @@ $(function () {
 
 
   var update_fiscal_year = function (date_string) {
-    var date = new Date(date_string);
-    var month = date.getMonth();
-    var year = (month > 6 && date.getFullYear() + 1) || (date.getFullYear());
+    var year = parseInt(date_string.substr(0, 4))
+    var month = parseInt(date_string.substr(5, 2))
 
-    $id_0.val(year);
+    var fyear = (month > 6 && year + 1) || year;
+
+    $id_0.val(fyear);
   }
 
 

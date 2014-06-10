@@ -2,6 +2,11 @@ require 'date'
 
 module YaleAccessionIdGenerator
 
+  def self.included(base)
+    base.extend(ClassMethods)
+  end
+
+
   @id_0_generator = lambda {|json|
     date = Date.parse(json['accession_date'])
     "#{date.month > 6 ? date.year + 1 : date.year}"
@@ -42,4 +47,12 @@ module YaleAccessionIdGenerator
     super
   end
 
+
+  module ClassMethods
+
+    def create_from_json(json, *other_args)
+      json[:id_2] = nil
+      super
+    end
+  end
 end
