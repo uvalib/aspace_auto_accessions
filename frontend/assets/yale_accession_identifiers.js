@@ -6,10 +6,28 @@ $(function () {
 
   $('#accession_id_3_').hide();
 
+
+
   var init = function () {
+
+    var disable = function($field) {
+      $field.attr('readonly', 'readonly');      
+      $field.attr('tabindex', '-1');
+      $field.on("focus", function(e) {
+        $(this).blur();
+        e.stopPropagation();
+      });
+
+      $field.on("change", function(e) {
+        e.stopPropagation();
+      });
+      
+    }
+
     $ids.removeClass('required');
-    $id_0.attr('readonly', 'readonly');
-    $id_2.attr('readonly', 'readonly');
+    disable($id_0);
+    disable($id_2);
+
 
     if (! $id_2.val().length) {
       $id_2.val('XXXX');
