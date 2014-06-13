@@ -13,6 +13,11 @@ module YaleAccessionIdGenerator
   }
 
 
+  @id_1_generator = lambda {|json|
+    "import"
+  }
+
+
   @id_2_generator = lambda {|json|
     sequence_name = "yale_accession_#{json['id_0']}_#{json['id_1']}"
 
@@ -25,6 +30,11 @@ module YaleAccessionIdGenerator
 
   def self.id_0_generator
     @id_0_generator
+  end
+
+
+  def self.id_1_generator
+    @id_1_generator
   end
 
 
@@ -50,8 +60,9 @@ module YaleAccessionIdGenerator
 
   module ClassMethods
 
-    def create_from_json(json, *other_args)
+    def create_from_json(json, opts)
       json[:id_2] = nil
+
       super
     end
   end
