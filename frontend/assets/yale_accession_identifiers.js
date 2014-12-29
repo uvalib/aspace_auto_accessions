@@ -6,8 +6,6 @@ $(function () {
 
   $('#accession_id_3_').hide();
 
-
-
   var init = function () {
 
     var disable = function($field) {
@@ -68,6 +66,8 @@ $(function () {
           $('#accession_id_1_').replaceWith(html);
         } else if (codes.length == 1) {
           $('#accession_id_1_').val(codes[0]);
+          $('#accession_id_1_').removeAttr('disabled');
+          disable($('#accession_id_1_'));
         } else {
           $('#accession_id_1_').attr('disabled', 'disabled');
         }
