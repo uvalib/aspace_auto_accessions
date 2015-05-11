@@ -16,12 +16,12 @@ Accession.properties_to_auto_generate.push ({
 Accession.properties_to_auto_generate.push ({
   :property => :id_0,
   :generator => YaleAccessionIdGenerator.id_0_generator,
-  :only_if => proc { true }
+  :only_if_nil => proc { true }                                           
 })
 
 
 Accession.properties_to_auto_generate.push ({
   :property => :id_2,
   :generator => YaleAccessionIdGenerator.id_2_generator,
-  :only_if => proc {|json| json[:id_2].nil? }
+  :only_if => proc {|json| json[:id_2].nil? && !json[:id_1].nil? }
 })
