@@ -3,10 +3,6 @@ Yale Accessions README
 
 # Getting Started
 
-Download the latest release from the Releases tab in Github:
-
-  https://github.com/lcdhoffman/aspace_yale_accessions/releases
-
 Unzip the release and move it to:
 
     /path/to/archivesspace/plugins
@@ -47,8 +43,3 @@ identifier.
 
 The first and third sections of the identifier will be system-generated upon
 saving the record. The fourth section will be removed.
-
-
-
-
-  
