@@ -25,8 +25,6 @@ AccessionIdentifiers.prototype.init = function () {
     var self = this;
 
     if (self.new_record) {
-        $('#accession_id_3_').hide();
-
         self.ids.removeClass('required');
         self.disable(self.id_0);
         self.disable(self.id_2);
@@ -56,6 +54,7 @@ AccessionIdentifiers.prototype.init = function () {
     }
 
 
+    $('#accession_id_3_').hide();
     self.load_department_codes();
 };
 
