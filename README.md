@@ -43,3 +43,19 @@ identifier.
 
 The first and third sections of the identifier will be system-generated upon
 saving the record. The fourth section will be removed.
+
+
+# Increasing sequence numbers
+
+If you've imported existing records into the system, you may need to
+manually set the sequence numbers for your records so that the
+auto-generated IDs don't clash with existing ones.
+
+Suppose you have a department code called 'ycal'.  You can insert a
+new sequence starting from 100 for 2015 with some SQL:
+
+     insert into sequence (sequence_name, value) values ('yale_accession_2015_ycal', 100);
+
+Or, if that sequence already exists, update it:
+
+     update sequence set value = 100 where sequence_name = 'yale_accession_2015_ycal';

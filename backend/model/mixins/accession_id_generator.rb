@@ -7,6 +7,13 @@ module YaleAccessionIdGenerator
   end
 
 
+  def self.inside_import?
+    # Requests through the web UI will come in with a high priority, whereas
+    # migrations and batch imports will not.
+    !RequestContext.get(:is_high_priority)
+  end
+
+
   @id_0_generator = lambda {|json|
     date = Date.parse(json['accession_date'])
     "#{date.month > 6 ? date.year + 1 : date.year}"
@@ -61,7 +68,9 @@ module YaleAccessionIdGenerator
   module ClassMethods
 
     def create_from_json(json, opts)
-      json[:id_2] = nil
+      if !YaleAccessionIdGenerator.inside_import?
+        json[:id_2] = nil
+      end
 
       super
     end
