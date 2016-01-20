@@ -1,6 +1,6 @@
 $(function () {
 
-  var padding = 3;
+  var padding = 4;
 
   var pad_number = function (number, padding) {
     var s = ('' + number);
@@ -21,10 +21,11 @@ $(function () {
       data: {},
       type: "POST",
       success: function(identifier) {
-        $('#accession_id_0_').val(identifier.year);
-        $('#accession_id_1_').val(pad_number(identifier.number, padding));
-
+        $('#accession_id_0_').val(identifier.org_code);
+        $('#accession_id_1_').val(identifier.year);
+        $('#accession_id_2_').val(pad_number(identifier.number, padding));
         $('#accession_id_1_').enable();
+        $('#accession_id_2_').enable();
       },
     })
   };

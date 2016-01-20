@@ -14,4 +14,19 @@ class ArchivesSpaceService < Sinatra::Base
     json_response(:year => year, :number => number)
   end
 
+
+  Endpoint.post( '/plugins/repositories/:repo_id/generate_accession_identifiers/next' )
+  .description("Generate a new identifier based on the :repo_id, year and a running number")
+  .params(["repo_id", :repo_id])
+  .permissions([])
+  .returns([200, "{'repo_id' :repo_id, 'year', 'YYYY', 'number', N}"]) \
+do
+  repo = Repository.find( :id => params[:repo_id].to_i ).values
+  org_code = repo[:org_code] || repo[:repo_code]
+  year = Time.now.strftime('%Y')
+  number = Sequence.get("GENERATE_ACCESSION_IDENTIFIER_#{org_code}_#{year}")
+  json_response(:org_code => org_code, :year => year, :number => number)
+end
+  
+
 end
