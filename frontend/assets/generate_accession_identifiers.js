@@ -30,7 +30,8 @@ $(function () {
     })
   };
 
-
+  
+ 
   var identifier_is_blank = function () {
     for (var i = 0; i < 4; i++) {
       if ($("#accession_id_" + i + "_").val() !== "") {
@@ -42,8 +43,17 @@ $(function () {
   };
 
 
+  var use_default_values = function () {
+      return $.ajax( { 
+          url: APP_PATH + "plugins/generate_accession_identifier/default_values",
+          type: "GET", async: false, 
+          success: function(val) { use_default_values = val; },
+      }).responseText == "true" ;
+  };
 
-  if (identifier_is_blank()) {
+
+  if (identifier_is_blank() && use_default_values() ) {
+      alert('use_default_values');
     generate_accession_id();
   }
 

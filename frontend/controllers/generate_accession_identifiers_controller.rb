@@ -13,4 +13,8 @@ class GenerateAccessionIdentifiersController < ApplicationController
     end
   end
 
+  def default_values
+    render :json => user_prefs['default_values']
+  end
+
 end
