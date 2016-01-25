@@ -4,6 +4,7 @@ require 'pry'
 
 class ArchivesSpaceService < Sinatra::Base
 
+  # frontend controller now calls the endpoint below, not this one.
   Endpoint.post('/plugins/generate_accession_identifiers/next')
     .description("Generate a new identifier based on the year and a running number")
     .params()
