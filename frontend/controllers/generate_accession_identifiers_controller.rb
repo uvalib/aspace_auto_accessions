@@ -1,3 +1,6 @@
+#require 'awesome_print'
+#require 'pry'
+
 class GenerateAccessionIdentifiersController < ApplicationController
 
   skip_before_filter :unauthorised_access
@@ -14,6 +17,7 @@ class GenerateAccessionIdentifiersController < ApplicationController
   end
 
   def default_values
+#   Rails.logger.debug( user_prefs.ai )
     render :json => user_prefs['default_values']
   end
 

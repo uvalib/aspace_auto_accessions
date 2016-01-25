@@ -53,7 +53,6 @@ $(function () {
 
 
   if (identifier_is_blank() && use_default_values() ) {
-//  alert('use_default_values');
     generate_accession_id();
   }
 
