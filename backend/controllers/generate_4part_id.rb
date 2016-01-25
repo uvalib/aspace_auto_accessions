@@ -35,7 +35,6 @@ do
   identifier = [ org_code, year, sprintf( "%04d", number), nil ].to_json  # Format string here ("%04d") must match padding in javascript! 
   Log.debug( "@@@@@@@@@@@@@@ Generate Accession Identifiers @@@@@@@@@@@@@@@@@")
   Log.debug( "identifier => #{identifier}")
-  ap identifier
   DB.open(true) do |db|
     other = db[:accession].filter( :repo_id => params[:repo_id].to_i )
     Log.debug( "accession :repo_id => #{params[:repo_id].to_i} Count = #{other.count}" )
