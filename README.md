@@ -4,7 +4,10 @@ This is a modification of the original generate-accession-identifiers plugin wit
 identifier format is  `ORG-CODE YYYY NNN` 
 where org-code is the repository organization/agency code or the repository short name if no agency code is set for that repo.
 
-This plugin is engaged by the pre-populate-records preference setting. 
+It keeps a separate sequence counter in the DB for each ORG-CODE,YEAR for example:
+sequence_name: GENERATE_ACCESSION_IDENTIFIER_ViU_2018
+
+This plugin is enabled by the pre-populate-records preference setting.
  ( preferences/defaults/default_values = true )
 If default_values is false or unset (nil), then plugin will not generate accession ids. 
 
