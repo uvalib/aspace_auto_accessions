@@ -8,6 +8,8 @@ This plugin is engaged by the pre-populate-records preference setting.
  ( preferences/defaults/default_values = true )
 If default_values is false or unset (nil), then plugin will not generate accession ids. 
 
+Note that because the default values have 3 possible settings ( true, false, nil ), but only two levels in the staff webapp display,
+there can be some confusion over whether a value is unset (nil), which cause it to fallthru to the next level of settings, or false, which causes it to return false.
 
 ---------
 
